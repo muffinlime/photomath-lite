@@ -21,7 +21,7 @@ For the software to work:
 ![alt text](https://i.imgur.com/bQcLUzZ.jpeg "Sample photo 3")
 
 ## Metrics and real-world performance
-As requested in the assignment, the most important metrics in my opinion are model accuracy and average inference time. 
+As requested in the assignment, the metrics I found important are model accuracy and average inference time. 
 
 Accuracy on a test set consisting of MNIST and hand-written symbols: ~99.5%
 
@@ -29,7 +29,7 @@ Inference time:
 * ~5.5s on base Apple M1 chip
 * ~15s on pythonanywhere's servers (where the app is hosted)
 
-Is this good enough? Well no, not really, who'd want to wait 15 seconds for a solution. If my memory serves me correctly, the author of this assignment said that they aim for sub 1 second at Photomath, while taking it below 0.3s presents no added value. Since the inputs are expected to be pretty, it would make sense to choose a lot simpler model and sacrifice some of the accuracy on the (not so pretty) MNIST instances to reduce inference time.
+Is this good enough? Well no, not really, who'd want to wait 15 seconds for a solution. If my memory serves me correctly, the author of this assignment said that taking it below 0.3s presents no added value to the user, so only 14.7s to go :) ([source](https://www.youtube.com/watch?v=bR-9LM30RUw)). Since the inputs are expected to be pretty, it would make sense to choose a lot simpler model and sacrifice some of the accuracy on the (not so pretty) MNIST instances to reduce inference time. Also, I imagine it would work a lot faster on Google Cloud but for some reason they wouldn't accept my CC info so I couldn't test it.
 
 How could inference time be improved?
 * use a simpler model
@@ -51,9 +51,9 @@ Takes the array of localized character images as input and returns an array of p
 #### Training data
 The model was trained on a slightly modified MNIST dataset. Each MNIST character was re-centered by it's arithmetic center (w/2, h/2). In the original MNIST dataset, characters are centered by their center of mass ([more details here](http://yann.lecun.com/exdb/mnist/)). The dataset was completed by 10 unique hand-written instances of [+, -, x, /, (, )], of which each is multiplied 600 times, totaling 6000 images per character. (A rather low sample size of only 10 unique instances but it seemed to work fairly well so I decided it was good enough).
 #### Model architecture
-Worked fairly well on the original MNIST problem, so I used it here.
+Performs rather well on the original MNIST dataset, and it did so here as well.
 
-TODO
+![alt text](https://i.imgur.com/awGAow7.png "Model architecture")
 
 ### Solver
 Takes the array of predicted expression characters as input and calculates the result. Returns both the expression and the result. First it merges the adjacent digits and converts them to integers while converting subtraction to addition of negative numbers. Then it goes through a recursive algorithm looking for parentheses and sending the inner-most (mini) expressions to the solver which just loops through them doing the multiplication and division operations first and the addition and subtraction second.
