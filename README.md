@@ -21,21 +21,22 @@ For the software to work:
 ![alt text](https://i.imgur.com/bQcLUzZ.jpeg "Sample photo 3")
 
 ## Metrics and real-world performance
-As requested in the assignment, the metrics I found important are model accuracy and average inference time. 
+As requested in the assignment, the metrics I found important are model accuracy and execution time. 
 
 Accuracy on a test set consisting of MNIST and hand-written symbols: ~99.5%
 
-Inference time:
-* ~5.5s on base Apple M1 chip
+Execution time (normal, large photos):
+* ~5.5s on a base Apple M1 chip
 * ~15s on pythonanywhere's servers (where the app is hosted)
 
-Is this good enough? Well no, not really, who'd want to wait 15 seconds for a solution. If my memory serves me correctly, the author of this assignment said that taking it below 0.3s presents no added value to the user, so only 14.7s to go :) ([source](https://www.youtube.com/watch?v=bR-9LM30RUw)). Since the inputs are expected to be pretty, it would make sense to choose a lot simpler model and sacrifice some of the accuracy on the (not so pretty) MNIST instances to reduce inference time. Also, I imagine it would work a lot faster on Google Cloud but for some reason they wouldn't accept my CC info so I couldn't test it.
+Is this good enough? Well no, not really, who'd want to wait 15 seconds for a solution. If my memory serves me correctly, the author of this assignment said that taking it below 0.3s presents no added value to the user, so only 14.7s to go :) ([source](https://www.youtube.com/watch?v=bR-9LM30RUw)).
 
 How could inference time be improved?
-* use a simpler model
+* **force the user to keep the expression inside a smaller rectangle on the photo, same as the original photomath app. By not preprocessing the irrelevant parts of the photo, this reduced the execution time to sub 2s on pythonanywhere using [this photo](https://i.imgur.com/xexox9K.jpeg)**
+* use a simpler model as pretty inputs are expected
 * reduce or change the preprocessing steps
 * implement a more efficient solving algorithm
-* run it on a faster machine, but that is obvious
+* run it on a faster server, but that is obvious (originally wanted to try out Google Cloud but they wouldn't accept any of my CC's)
 
 Other things that could be improved:
 * better preprocessing steps that would allow the software to work on a wider range of photos
