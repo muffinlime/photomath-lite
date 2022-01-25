@@ -31,7 +31,7 @@ Execution time (4032x3024 image):
 Is this good enough? Well no, not really, but for a first iteration, I'm happy. For sub 2s I'd be very happy and for sub 1s I'd be thrilled, just as a reference point. If my memory serves me correctly, the author of this assignment said that taking it below 0.3s presents no added value, and adding a cool animation easily makes 1s feel instant for the user. ([source](https://www.youtube.com/watch?v=bR-9LM30RUw)).
 
 How could execution time be improved?
-* force the user to keep the expression inside a smaller rectangle on the photo, same as in the original photomath app. By not preprocessing the irrelevant parts of the photo, this reduced the execution time to sub 2s on pythonanywhere using [this photo](https://i.imgur.com/xexox9K.jpeg)
+* force the user to keep the expression inside a smaller rectangle on the photo, same as in the original photomath app. By not preprocessing the irrelevant parts of the photo, this reduced the execution time to ~1.5s on pythonanywhere using [this photo](https://i.imgur.com/ObmkwEs.jpeg)
 * use a simpler model as pretty inputs are expected
 * reduce or change the preprocessing steps
 * implement a more efficient solving algorithm
