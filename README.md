@@ -3,6 +3,8 @@
 
 A very simple math expression solver which takes hand-written expression as input, attempts to recognize the characters and returns the calculated result. Created as a personal project following the specifications of [this assignment](https://github.com/photomath/ml-assignments/blob/main/assignment-A.pdf).
 
+note: I tried dockerizing the app but couldn't create an image with tensorflow installed due to M1 chip not being fully supported ([read more](https://github.com/docker/for-mac/issues/5320))
+
 ## Usage instructions
 Try it out: [click here](https://muffinlime.eu.pythonanywhere.com)
 
@@ -28,7 +30,7 @@ Accuracy on a test set consisting of MNIST and hand-written symbols: ~99.5%
 Execution time (4032x3024 image):
 * ~3.5s on pythonanywhere's servers (where the app is hosted)
 
-Is this good enough? Well no, not really, but for a first iteration, I'm happy. For sub 2s I'd be very happy and for sub 1s I'd be thrilled, just as a reference point. If my memory serves me correctly, the author of this assignment said that taking it below 0.3s presents no added value, and adding a cool animation easily makes 1s feel instant for the user. ([source](https://www.youtube.com/watch?v=bR-9LM30RUw)).
+Is this good enough? Well no, not really, but for a first iteration, I'm happy. For sub 2s I'd be very happy and for sub 1s I'd be thrilled, as a reference point. If my memory serves me correctly, the author of this assignment said that taking it below 0.3s presents no added value, and adding a cool animation easily makes 1s feel instant for the user. ([source](https://www.youtube.com/watch?v=bR-9LM30RUw)).
 
 How could execution time be improved?
 * force the user to keep the expression inside a smaller rectangle on the photo, same as in the original photomath app. By not preprocessing the irrelevant parts of the photo, this reduced the execution time to ~1.5s on pythonanywhere using [this photo](https://i.imgur.com/ObmkwEs.jpeg)
@@ -37,7 +39,7 @@ How could execution time be improved?
 * implement a more efficient solving algorithm
 * run it on a faster server, but that is obvious (originally wanted to try out Google Cloud but they wouldn't accept any of my CC's)
 
-Other things that could be improved:
+Other things that should be improved:
 * better preprocessing steps that would allow the software to work on a wider range of photos
 * a model trained on a more relevant dataset
 
