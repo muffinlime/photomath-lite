@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>Photomath (very) Lite</title>
+{% endblock %}
+
+{% block body %}
+<div class="position-absolute top-50 start-50 translate-middle">
+    <form method="POST" enctype="multipart/form-data">
+        <label class="btn btn-light">
+            Browse <input type="file" name="file" class="custom-file-input" id="input_image" accept="image/*" capture="camera" hidden>
+        </label>
+        <button type="submit" value="submit" class="btn btn-light">Submit</button>
+    </form>
+</div>
+{% endblock %}
