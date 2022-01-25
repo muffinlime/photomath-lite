@@ -3,7 +3,7 @@
 
 A very simple math expression solver which takes hand-written expression as input, attempts to recognize the characters and returns the calculated result. Created as a personal project following the specifications of [this assignment](https://github.com/photomath/ml-assignments/blob/main/assignment-A.pdf).
 
-note: I tried dockerizing the app but couldn't create an image with tensorflow installed due to M1 chip not being fully supported ([read more](https://github.com/docker/for-mac/issues/5320))
+note: I tried dockerizing the app but had problems creating an image with tensorflow installed due to M1 chip not being fully supported ([more details](https://github.com/docker/for-mac/issues/5320))
 
 ## Usage instructions
 Try it out: [click here](https://muffinlime.eu.pythonanywhere.com)
